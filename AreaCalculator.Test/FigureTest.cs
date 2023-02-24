@@ -28,5 +28,17 @@ public class FigureTest
         var triangle = new Triangle(3, 4, 5);
         Assert.True(triangle.IsRectangular());
     }
+
+    [Fact]
+    public void Test_Invalid_Triangle()
+    {
+        Assert.Throws<ArgumentException>(() => new Triangle(-3, 4, 5));
+    }
+    
+    [Fact]
+    public void Test_Invalid_Circle()
+    {
+        Assert.Throws<ArgumentException>(() => new Circle(-1));
+    }
     
 }
