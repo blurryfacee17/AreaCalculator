@@ -18,16 +18,21 @@ public class Triangle : Figure
             throw new ArgumentException("Side of triangle cannot be 0 or less than 0");
         }
 
+        if (sideA + sideB <= sideC || sideA + sideC <= sideB || sideB + sideC <= sideA)
+        {
+            throw new ArgumentException("Invalid sides");
+        }
+
         _sides = new[] { sideA, sideB, sideC };
     }
-    
+
     public override double GetArea()
     {
         var halfMeter = (_sides[0] + _sides[1] + _sides[2]) / 2;
         var area = Math.Sqrt(halfMeter * (halfMeter - _sides[0]) * (halfMeter - _sides[1]) * (halfMeter - _sides[2]));
         return area;
     }
-    
+
     /// <summary>
     ///  Checks whether the triangle is rectangular.
     /// </summary>
